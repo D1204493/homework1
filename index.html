@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <title>Please Wait</title>
 
-    <meta name="msapplication-TileColor" content="#b721ff">
     <meta name="theme-color" content="#b721ff">
 
     <!-- Google font -->
@@ -22,31 +21,21 @@
             flex-direction: column;
             justify-content: space-between;
             align-items: center;
-            background-color: #bdaa90;
+            background-color: darkseagreen;
             user-select: none;
             -moz-user-select: none;
             -webkit-user-select: none;
             position:relative;
             overflow:hidden;
         }
-        body::before{
-            content:"";
-            position:absolute;
-            width:120%;height:120%;
-            top:50%;left:50%;
-            z-index:-1;
-            transform:translate(-50%,-50%) rotate(-3deg);
-            background-image: url("imgs/sloth.jpeg");
-            background-repeat: repeat-x;
-            background-size: contain;
-        }
 
+        /*圖片離網頁頂端邊界的距離*/
         .title {
             margin:2em 0 0 0;
             width: min(600px,80%);
         }
 
-        .cat-img {
+        .sloth-img {
             height:0;
             flex-grow:1;
             width:100%;
@@ -59,22 +48,22 @@
             color:white;
             -webkit-text-stroke-width: 3px;
             -webkit-text-stroke-color: black;
-            font-weight:900;
-            font-size:80px;
+            font-weight:500;
+            font-size:200px;
             font-family: 'Madimi One', sans-serif;
             word-wrap: break-word;
         }
+
         @media(min-width:1000px) {
             .title {
                 width: min(400px,80%);
             }
-            .cat-img {
+            .sloth-img {
                 font-size: 40px;
-                -webkit-text-stroke-width: 1.5px;
+                -webkit-text-stroke-width: 2px;
             }
         }
-        /*#p { background-image: url("imgs/p.png"); }*/
-        /*#op { background-image: url("imgs/op.png"); }*/
+
     </style>
 </head>
 
@@ -82,7 +71,7 @@
 <img class="title" src="imgs/sloth.jpeg" alt="sloth">
 <!--element(元素):一整行<> ;tag:<img> ;attribute:class、src、alt ;text:"title"、"imgs..."、"POPCAT"-->
 
-<div class="cat-img" id="p">12345687654</div>
+<div class="sloth-img" >......Please Wait........Be patience......</div>
 <!--div:區塊、容器; id為獨一無二的-->
 
 </body>
