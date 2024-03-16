@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
     <title>Please Wait</title>
-
-    <meta name="theme-color" content="#b721ff">
-
-    <!-- Google font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Madimi+One&family=Noto+Sans+TC:wght@100..900&family=Sriracha&display=swap&text=0123456789" rel="stylesheet">
-    <!--上一行1.css與css2差別 2.wght@200..900 字的大小 3.swap&text=0123456789 text...可讓網頁速度變快，SEO效率變快-->
+    <meta charset="UTF-8">
+    <meta name="theme-color" content="#e5ff21">
+    <meta name="viewport" content="width=device-width, user-scalable=yes,
+    initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0">
 
     <style>
         html { height:100%; overflow:hidden; }
+        H1{
+            font-size:50px;
+            color:black;
+            text-shadow:5px 5px 5px #a6a6a6;
+        }
         body {
             height:100%;
             margin:0;
@@ -32,14 +32,14 @@
         /*圖片離網頁頂端邊界的距離*/
         .title {
             margin:2em 0 0 0;
-            width: min(600px,80%);
+            width: min(500px,80%);
         }
 
         .sloth-img {
             height:0;
             flex-grow:1;
             width:100%;
-            max-width: 800px;
+            max-width: 700px;
             background-position: bottom;
             background-size: contain;
             background-repeat: no-repeat;
@@ -50,11 +50,10 @@
             -webkit-text-stroke-color: black;
             font-weight:500;
             font-size:200px;
-            font-family: 'Madimi One', sans-serif;
             word-wrap: break-word;
         }
 
-        @media(min-width:1000px) {
+        @media(min-width:900px) {
             .title {
                 width: min(400px,80%);
             }
@@ -63,16 +62,16 @@
                 -webkit-text-stroke-width: 2px;
             }
         }
-
     </style>
 </head>
 
 <body>
 <img class="title" src="imgs/sloth.jpeg" alt="sloth">
 <!--element(元素):一整行<> ;tag:<img> ;attribute:class、src、alt ;text:"title"、"imgs..."、"POPCAT"-->
+<div class="sloth-img"></div>
 
-<div class="sloth-img" >......Please Wait........Be patience......</div>
-<!--div:區塊、容器; id為獨一無二的-->
-
+<footer>
+    <H1>......Please Wait........Be patience......</H1>
+</footer>
 </body>
 </html>
