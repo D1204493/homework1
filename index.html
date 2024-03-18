@@ -7,13 +7,30 @@
     <meta name="viewport" content="width=device-width, user-scalable=yes,
     initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0">
 
+    <link rel="icon" href="imgs/netflix icon.png" type="image/x-icon">
+
     <style>
         html { height:100%; overflow:hidden; }
-        H1{
-            font-size:50px;
-            color:black;
-            text-shadow:5px 5px 5px #a6a6a6;
+
+        .centered-text {
+            position: absolute;
+            top: 30%; /* 垂直置中 */
+            left: 50%; /* 水平置中 */
+            transform: translate(-50%, -50%); /* 使用 transform 來微調位置 */
+            text-align: center; /* 文字水平居中 */
+            font-size: 64px; /* 文字大小 */
+            font-family: Arial, sans-serif; /* 字體 */
+            color: navajowhite; /* 文字顏色 */
         }
+
+        .moving-image {
+            width: 200px; /* 設置圖片寬度 */
+            height: 200px;
+            position: absolute;
+            top: 50px; /* 初始位置 */
+            left: 50px; /* 初始位置 */
+        }
+
         body {
             height:100%;
             margin:0;
@@ -21,7 +38,12 @@
             flex-direction: column;
             justify-content: space-between;
             align-items: center;
-            background-color: darkseagreen;
+            background-image: url('imgs/netflix.png');
+            background-repeat: no-repeat;
+            /* 設置背景圖片的大小和位置 */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             user-select: none;
             -moz-user-select: none;
             -webkit-user-select: none;
@@ -29,49 +51,51 @@
             overflow:hidden;
         }
 
-        /*圖片離網頁頂端邊界的距離*/
-        .title {
-            margin:2em 0 0 0;
-            width: min(500px,80%);
-        }
-
-        .sloth-img {
-            height:0;
-            flex-grow:1;
-            width:100%;
-            max-width: 700px;
-            background-position: bottom;
-            background-size: contain;
-            background-repeat: no-repeat;
-            touch-action: manipulation;
-            text-align: center;
-            color:white;
-            -webkit-text-stroke-width: 3px;
-            -webkit-text-stroke-color: black;
-            font-weight:500;
-            font-size:200px;
-            word-wrap: break-word;
-        }
-
-        @media(min-width:900px) {
-            .title {
-                width: min(400px,80%);
-            }
-            .sloth-img {
-                font-size: 40px;
-                -webkit-text-stroke-width: 2px;
-            }
-        }
     </style>
 </head>
 
 <body>
-<img class="title" src="imgs/sloth.jpeg" alt="sloth">
-<!--element(元素):一整行<> ;tag:<img> ;attribute:class、src、alt ;text:"title"、"imgs..."、"POPCAT"-->
-<div class="sloth-img"></div>
+    <!-- 文字內容 -->
+    <div class="centered-text">
+        ......Please Wait.....<br>
+        .....Be patience......
+    </div>
 
-<footer>
-    <H1>......Please Wait........Be patience......</H1>
-</footer>
+<img class="moving-image" src="imgs/sloth 2.png" alt="sloth 2">
+<script>
+    // 獲取小圖片元素
+    const image = document.querySelector('.moving-image');
+
+    // 設置初始位置和速度
+    let positionX = 50;
+    let positionY = 50;
+    let speedX = 2;
+    let speedY = 1;
+
+    // 函數來移動小圖片
+    function moveImage() {
+        // 更新位置
+        positionX += speedX;
+        positionY += speedY;
+
+        // 將位置應用到圖片元素
+        image.style.left = positionX + 'px';
+        image.style.top = positionY + 'px';
+
+        // 如果圖片碰到瀏覽器邊界，改變方向
+        if (positionX >= window.innerWidth - image.width || positionX <= 0) {
+            speedX = -speedX;
+        }
+        if (positionY >= window.innerHeight - image.height || positionY <= 0) {
+            speedY = -speedY;
+        }
+
+        // 使用 requestAnimationFrame 來持續執行移動
+        requestAnimationFrame(moveImage);
+    }
+
+    // 啟動移動小圖片的函數
+    moveImage();
+</script>
 </body>
 </html>
